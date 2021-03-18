@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+
+  <!-- Recipes Items
+  ================== -->
+  <section id="items">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Recipes</h2>
+        </div>
+      </div>
+      
+      <div class="row">
+        {% if recipes_srchd.items == [] %}
+          <h4>We can't find what you're looking for.</h4>
+        {% else %}
+
+        <!-- recipe item -->
+          {% for recipe in recipes_srchd.items %}
+            <div class="col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+              <div class="recipe-item text-center">
+                <a href="{{ url_for('recipes.index', id=recipe.id) }}">
+                  <img src="{{ recipe.image }}" alt="{{ recipe.title }}"/>
+                </a>
+                <br />
+                <h3>{{ recipe.title }}</h3>
+              </div>
+            </div>
+          {% endfor %}
+
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              {% if recipes_srchd.has_prev %}
+                <li class="page-item"><a class="page-link" href="{{ url_for('home.index', pn=recipes.prev_num) }}">Previous</a></li>
+              {% endif %}
+              {% for nm in recipes_srchd.iter_pages() %}
+                {% if nm %}
+                  <li class="page-item"><a class="page-link" href="{{ url_for('home.index', pn=nm) }}">{{ nm }}</a></li>
+                {% else %}
+                  <li class="page-item"><a class="page-link" href="#">...</a>
+                {% endif %}
+              {% endfor %}
+              {% if recipes_srchd.has_next %}
+                <li class="page-item"><a class="page-link" href="{{ url_for('home.index', pn=recipes.next_num) }}">Next</a></li>
+              {% endif %}
+            </ul>
+          </nav>  
+        {% endif %}
+        
+  </section>
+{% endblock %}

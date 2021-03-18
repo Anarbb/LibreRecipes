@@ -1,2 +1,2 @@
-# LibreRecipes
-An OpenSource crowd-sourced cooking recipes website
+# OsRecipes
+An OpenSource recipe website with database and images

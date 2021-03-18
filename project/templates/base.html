@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic meta info
+  ==================== -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LibreRecipes - {% block title %}{% endblock %}</title>
+
+  <!-- Favicon
+  ============ -->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon/favicon.png') }}" />
+
+
+  <!-- CSS files
+  ============== -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}"/>
+  
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/font-awesome.min.css') }}"  />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.min.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+  <!-- Modernizr file
+  =================== -->
+  
+
+  <script charset="utf-8" type="text/javascript "src="{{ url_for('static', filename='js/modernizr.custom.js') }}"></script>
+
+</head>
+
+<body>
+
+  <!-- Splash Screen
+  ================== -->
+  <div id="splash"></div>
+
+  <!-- Website Logo
+  ================= -->
+  <section id="logo">
+    <div class="container text-center wow pulse">
+      <a href="{{ url_for('home.index', pn=1) }}">
+        <img src="{{ url_for('static', filename='images/logo-white.svg') }}" alt="logo" />
+      </a>
+      <br />
+      <h1>LibreRecipes</h1>
+    </div>
+  </section>
+
+  {% block content %}{% endblock%}
+
+  <!-- Website Footer
+  =================== -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- About -->
+        <div class="col-md-6 col-sm-12 text-center">
+          <h3>About</h3>
+          <div class="footer-about">
+            "A recipe book is one that you use daily and what we in our family
+            call 'a living book' — a book that you use all the time,
+            not just read once and discard on the shelf.
+            Recipes are by nature derivative and meant to be shared -
+            that is how they improve, are changed, how new ideas are formed. ”
+          </div>
+        </div>
+        
+        <!-- Author -->
+        <div class="col-md-6 col-sm-12 text-center">
+            <br>
+          <div class="footer-author">
+            Made with
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            by
+            <a href="https://github.com/Anarbb/OsRecipes" target="_blank">Anas 
+            Arbaoui</a> and
+            <a href="https://github.com/jraleman/recipe-book-html-template" target="_blank">Jose Ramon</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript files
+  ===================== -->
+
+  <script charset="utf-8" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+  <script charset="utf-8" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script charset="utf-8" src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+  <script charset="utf-8" src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+
+</html>
