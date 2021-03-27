@@ -14,7 +14,7 @@ pip install -r requirments.txt
 ```sh
 python3.9 main.py
 ```
-* Put the recipes.sqlite3 in the ``project`` folder and then change 
+Put the recipes.sqlite3 in the ``project`` folder and then change 
 ```python
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///[db-name].sqlite3"
 ```
