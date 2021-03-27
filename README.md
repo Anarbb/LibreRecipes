@@ -1,6 +1,5 @@
 # OsRecipes
 > A bloat free recipe website made in Flask
-Images: https://anonfiles.com/UfzeydXet9/recipes-imgs_zip
 
 This is an OpenSource crowd-sourced cooking recipes website, this is a personal project
 but feel free to fork it and edit any code to your needs just keep it open source as the ``LICENSE`` implies.
@@ -20,8 +19,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///[db-name].sqlite3"
 ```
 in the ``__init__.py`` file line ``6``
 
+Images: (<https://anonfiles.com/UfzeydXet9/recipes-imgs_zip>)
 
 ## Planned Features
+
 * Adding categories filter
 
 ## Release History
