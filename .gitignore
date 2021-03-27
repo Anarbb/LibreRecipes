@@ -130,7 +130,9 @@ dmypy.json
 
 # Testing folder
 testing
-*.sqlite3
 .vscode
 recipes-imgs
 temp.py
+recipes-ext.sqlite3
+recipes-local.sqlite3
+x.sqlite3
