@@ -1,4 +1,4 @@
-# OsRecipes
+# LibreRecipes
 > A bloat free recipe website made in Flask
 
 This is an OpenSource crowd-sourced cooking recipes website, this is a personal project
