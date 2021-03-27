@@ -19,7 +19,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///[db-name].sqlite3"
 ```
 in the ``__init__.py`` file line ``6``
 
-Images: (<https://anonfiles.com/UfzeydXet9/recipes-imgs_zip>)
+Images: <https://anonfiles.com/UfzeydXet9/recipes-imgs_zip>
 
 ## Planned Features
 
