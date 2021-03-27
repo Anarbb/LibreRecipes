@@ -41,15 +41,16 @@
   ================= -->
   <section id="logo">
     <div class="container text-center wow pulse">
-      <a href="{{ url_for('home.index', pn=1) }}">
+      <a href="{{ url_for('home.index') }}">
         <img src="{{ url_for('static', filename='images/logo-white.svg') }}" alt="logo" />
       </a>
       <br />
       <h1>LibreRecipes</h1>
     </div>
   </section>
-
-  {% block content %}{% endblock%}
+  
+  {% block content %}
+  {% endblock%}
 
   <!-- Website Footer
   =================== -->

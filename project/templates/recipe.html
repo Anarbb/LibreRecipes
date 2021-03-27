@@ -17,11 +17,7 @@
         <div class="col-12">
           <!-- Picture -->
           <div class="col-md-8 pull-left wow swing">
-            {% if recipe.image %}
-            <img src="{{ url_for('static', filename=recipe.image) }}" alt="{{ recipe.title }}" class="recipe-picture" />
-            {% else %}
-            <img src="{{ recipe.title }}" alt="{{ recipe.title }}" class="recipe-picture" />
-            {% endif %}
+            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-picture" />
           </div>
           <!-- Info -->
           <div class="col-md-4 pull-right wow lightSpeedIn">
@@ -137,7 +133,7 @@
       <!-- Back to recipes -->
       <div class="row wow slideInUp">
         <div class="col-12 text-center">
-          <a href="{{ url_for('home.index', pn=1) }}">
+          <a href="{{ referrer }}">
             <i class="fa fa-backward" aria-hidden="true"></i>
             Go to back to recipes.
           </a>

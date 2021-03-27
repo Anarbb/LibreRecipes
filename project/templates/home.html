@@ -7,79 +7,15 @@
   ======================= -->
   <section id="categories">
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h2>Categories</h2>
+      <form action="{{ url_for('search.srch_handle') }}" method="POST">
+        <div class="input-group rounded">
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" id="search" name="search"/>
+          <span class="input-group-text border-0" id="search-addon">
+            <button type="submit" class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
+          </span>
         </div>
-      </div>
-      <div class="row wow zoomIn">
-        <!-- Breakfast - Category Item -->
-        
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-          <div class="category-item text-center">
-            <a href="#">
-              <img src="{{ url_for('static', filename='images/icons/milk.png') }}" alt="milk" width="48" height="48" />
-              <br />
-            </a>
-            Breakfast
-            
-          </div>
-        </div>
-        <!-- Meat - Category Item -->
-        
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-          <div class="category-item text-center">
-            <img src="{{ url_for('static', filename='images/icons/steak.png') }}" alt="meat" width="48" height="48" />
-            <br />
-            Meat
-          </div>
-        </div>
-        <!-- Seafood - Category Item -->
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-          <div class="category-item text-center">
-            
-            <img src="{{ url_for('static', filename='images/icons/fish.png') }}" alt="fish" width="48" height="48" />
-            <br />
-            Sea food
-          </div>
-        </div>
-        <!-- Snacks- Category Item -->
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-          <div class="category-item text-center">
-            
-            <img src="{{ url_for('static', filename='images/icons/peanuts.png') }}" alt="peanuts" width="48" height="48"/>
-            <br />
-            Snacks
-          </div>
-        </div>
-        <!-- Spicy - Category Item -->
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-          <div class="category-item text-center">
-            <img src="{{ url_for('static', filename='images/icons/chili.png') }}" alt="chili" width="48" height="48" />
-            <br />
-            Spicy
-          </div>
-        </div>
-        <!-- Vegetarian - Category Item -->
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-          <div class="category-item text-center">
-            
-            <img src="{{ url_for('static', filename='images/icons/vegan.png') }}" alt="vegan" width="48" height="48" />
-            <br />
-            Vegetarian
-          </div>
-        </div>
-      </div>
-      <div class="row wow zoomIn">
-        <div class="col-12 text-center show-all">
-          <div class="category-item text-center">
-            <i class="fa fa-cutlery fa-2x" aria-hidden="true"></i>
-            <br />
-            Show All
-          </div>
-        </div>
-      </div>
-    </div>
+      </form>
   </section>
 
   <!-- Recipes Items
@@ -104,11 +40,8 @@
             <div class="col-lg-4 col-md-6 col-sm-12 wow fadeIn">
               <div class="recipe-item text-center">
                 <a href="{{ url_for('recipes.index', id=recipe.id) }}">
-                  {% if recipe.image %}
-                  <img src="{{ url_for('static', filename=recipe.image) }}" alt="{{ recipe.title }}" class="recipe-picture" />
-                  {% else %}
-                  <img src="{{ recipe.title }}" alt="{{ recipe.title }}" class="recipe-picture" />
-                  {% endif %}
+
+                  <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-picture" />
                 </a>
                 <br />
                 <h3>{{ recipe.title }}</h3>
@@ -116,24 +49,29 @@
             </div>
           {% endfor %}
 
-          <nav aria-label="Page navigation">
-            <ul class="pagination">
-              {% if recipes.has_prev %}
-                <li class="page-item"><a class="page-link" href="{{ url_for('home.index', pn=recipes.prev_num) }}">Previous</a></li>
-              {% endif %}
-              {% for nm in recipes.iter_pages() %}
-                {% if nm %}
-                  <li class="page-item"><a class="page-link" href="{{ url_for('home.index', pn=nm) }}">{{ nm }}</a></li>
-                {% else %}
-                  <li class="page-item"><a class="page-link" href="#">...</a>
-                {% endif %}
-              {% endfor %}
-              {% if recipes.has_next %}
-                <li class="page-item"><a class="page-link" href="{{ url_for('home.index', pn=recipes.next_num) }}">Next</a></li>
-              {% endif %}
-            </ul>
-          </nav>  
-        {% endif %}
+          
         
   </section>
+<section id="categories">
+  <div class="container">
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        {% if recipes.has_prev %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('home.index', pn=recipes.prev_num) }}">Previous</a></li>
+        {% endif %}
+        {% for nm in recipes.iter_pages() %}
+          {% if nm %}
+            <li class="page-item"><a class="page-link" href="{{ url_for('home.index', pn=nm) }}">{{ nm }}</a></li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="#">...</a>
+          {% endif %}
+        {% endfor %}
+        {% if recipes.has_next %}
+          <li class="page-item"><a class="page-link" href="{{ url_for('home.index', pn=recipes.next_num) }}">Next</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</section>
+{% endif %}
 {% endblock %}
