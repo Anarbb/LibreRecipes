@@ -23,7 +23,7 @@ Images: <https://anonfiles.com/UfzeydXet9/recipes-imgs_zip>
 
 ## Planned Features
 
-* Adding categories filter
+* Cleaning up the database
 
 ## Release History
 * 0.0.2
