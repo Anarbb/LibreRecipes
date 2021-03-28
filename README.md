@@ -26,6 +26,8 @@ Images: <https://anonfiles.com/UfzeydXet9/recipes-imgs_zip>
 * Adding categories filter
 
 ## Release History
+* 0.0.2
+    * Added categories
 
 * 0.0.1
     * initial release

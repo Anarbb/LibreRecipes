@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block content %}
+
+<section id="items">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Categories</h2>
+        </div>
+      </div>
+      
+    <div class="row">
+        
+        <div class="row wow slideInUp">
+            <div class="col-12">
+              <div class="recipe-directions">
+                <ol>
+                    {% for category in categories %}
+                        <span class="badge badge-dark"><a style="color: white;" href="{{ url_for('categories.category', cat=category.categories) }}">{{ category.categories}}</a></span>
+                    {% endfor %}
+                </ol>
+              </div>
+            </div>
+          </div> 
+        
+    </div>
+</section>
+{% endblock%}

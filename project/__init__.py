@@ -12,10 +12,13 @@ db = SQLAlchemy(app)
 from project.home.views import home_blueprint
 from project.recipes.views import recipes_blueprint
 from project.search.views import search_blueprint
+from project.categories.views import categories_blueprint
+
 
 app.register_blueprint(home_blueprint, url_prefix="/home")
 app.register_blueprint(recipes_blueprint, url_prefix="/recipe")
 app.register_blueprint(search_blueprint, url_prefix="/search")
+app.register_blueprint(categories_blueprint)
 
 
 @app.route("/")

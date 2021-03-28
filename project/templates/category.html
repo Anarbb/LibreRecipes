@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Category{% endblock %}
+
+{% block content %}
+  <section id="categories">
+    <div class="container">
+      <form action="{{ url_for('search.srch_handle') }}" method="POST">
+        <div class="input-group rounded">
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+            aria-describedby="search-addon" id="search" name="search"/>
+          <span class="input-group-text border-0" id="search-addon">
+            <button type="submit" class="btn btn-outline-dark"><i class="fa fa-search"></i></button>
+          </span>
+        </div>
+      </form>
+  </section>
+  <!-- Recipes Items
+  ================== -->
+  <section id="items">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Recipes searched</h2>
+        </div>
+      </div>
+    <div class="row">
+        {% if categories_srchd.items == [] %}
+          <h4>This category is empty.</h4>
+        {% else %}
+        <!-- recipe item -->
+          {% for category in categories_srchd.items %}
+            <div class="col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+              <div class="recipe-item text-center">
+                <a href="{{ url_for('recipes.index', id=category.id) }}">
+                  <img src="{{ category.image }}" alt="{{ category.title }}"/>
+                </a>
+                <br />
+                <h3>{{ category.title }}</h3>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+    </div>
+  </section>
+<section id="categories">
+    <div class="container text-center wow pulse">
+
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            {% if categories_srchd.has_prev %}
+              <li class="page-item"><a class="page-link" href="{{ url_for('categories.category', cat=cat, pn=categories_srchd.prev_num) }}">Previous</a></li>
+            {% endif %}
+            {% for nm in categories_srchd.iter_pages() %}
+              {% if nm %}
+                <li class="page-item"><a class="page-link" href="{{ url_for('categories.category', cat=cat, pn=nm) }}">{{ nm }}</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="#">...</a>
+              {% endif %}
+            {% endfor %}
+            {% if categories_srchd.has_next %}
+              <li class="page-item"><a class="page-link" href="{{ url_for('categories.category', cat=cat, pn=categories_srchd.next_num) }}">Next</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+    </div>
+  </section>
+{% endblock %}

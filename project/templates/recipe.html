@@ -123,7 +123,7 @@
             <h3>Tags</h3>
             <ol>
               {% for category in recipe.categories.split("\n") %}
-              <span class="badge badge-dark">{{ category }}</span>
+              <span class="badge badge-dark"><a style="color: white;" href="{{ url_for('categories.category', cat=category) }}">{{ category}}</a></span>
               {% endfor %}
             </ol>
           </div>

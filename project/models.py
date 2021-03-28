@@ -38,3 +38,11 @@ class Recipes(db.Model):
         self.sodium = sodium
         self.desc = desc
         self.rating = rating
+
+
+class Categories(db.Model):
+    id = db.Column("id", db.Integer, primary_key=True)
+    categories = db.Column("categories", db.Text)
+
+    def __init__(self, categories):
+        self.categories = categories
