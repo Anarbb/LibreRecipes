@@ -33,7 +33,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 wow fadeIn">
               <div class="recipe-item text-center">
                 <a href="{{ url_for('recipes.index', id=category.id) }}">
-                  <img src="{{ category.image }}" alt="{{ category.title }}"/>
+                  <img src="{{ category.image }}" alt="{{ category.title }}" class="recipe-picture"/>
                 </a>
                 <br />
                 <h3>{{ category.title }}</h3>
