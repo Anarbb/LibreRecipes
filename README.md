@@ -8,7 +8,7 @@ but feel free to fork it and edit any code to your needs just keep it open sourc
 ## Development setup
 
 ```sh
-pip install -r requirments.txt
+pip install -r requirements.txt
 ```
 ```sh
 python3.9 main.py
