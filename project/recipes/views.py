@@ -6,4 +6,10 @@ recipes_blueprint = Blueprint("recipes", __name__, template_folder="templates")
 
 @recipes_blueprint.route("/<id>")
 def index(id):
-    return render_template("recipe.html", recipe=Recipes.query.filter_by(id=id).first())
+    recipe = Recipes.query.filter_by(id=id).first()
+    if recipe:
+        return render_template(
+            "recipe.html", recipe=Recipes.query.filter_by(id=id).first()
+        )
+    else:
+        return render_template("404.html"), 404
