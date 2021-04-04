@@ -11,7 +11,7 @@ home_blueprint = Blueprint("home", __name__, template_folder="templates")
 def index(pn=1):
     return render_template(
         "home.html",
-        recipes=Recipes.query.order_by(Recipes.title).paginate(
+        recipes=Recipes.query.order_by(Recipes.id).paginate(
             per_page=21, page=pn, error_out=True
         ),
         referrer=request.referrer,
