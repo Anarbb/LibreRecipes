@@ -1,146 +1,152 @@
-{% extends 'base.html' %}
-
-{% block title %}{{ recipe.title }}'s recipe{% endblock %}
-
-{% block content %}
-  <!-- Recipe Section
+{% extends 'base.html' %} {% block title %}{{ recipe.title }}'s recipe{%
+endblock %} {% block content %}
+<!-- Recipe Section
   =================== -->
-  <section id="recipe">
-    <div class="container">
-      <div class="row">
-        <!-- Title -->
-        <div class="col-12">
-          <h2>{{ recipe.title }}</h2>
-        </div>
+<section id="recipe">
+  <div class="container">
+    <div class="row">
+      <!-- Title -->
+      <div class="col-12">
+        <h2>{{ recipe.title }}</h2>
       </div>
-      <div class="row vertical-align">
-        <div class="col-12">
-          <!-- Picture -->
-          <div class="col-md-8 pull-left wow swing">
-            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-picture" />
-          </div>
-          <!-- Info -->
-          <div class="col-md-4 pull-right wow lightSpeedIn">
-            <div class="recipe-info">
-              <h3>Info</h3>
-              {% if recipe.rating %}
-                <!-- Rating -->
-                <div class="row">
-                  <div class="col-2 text-center">
-                    <i class="fa fa-area-chart" aria-hidden="true"></i>
-                  </div>
-                  <div class="col-6">Rating</div>
-                  <div class="col-4">
-                    {% for _ in range(recipe.rating) %}
-                      <i class="fa fa-star" aria-hidden="true"></i>
-                    {% endfor %}
-                  </div>
-                </div>
-              {% endif %}
-              {% if recipe.calories %}
-              <!-- Calories -->
-              <div class="row">
-                <div class="col-2 text-center">
-                  <i class="fa fa-codiepie" aria-hidden="true"></i>
-                </div>
-                <div class="col-6">Calories</div>
-                <div class="col-4">{{ recipe.calories }}</div>
-              </div>
-              {% endif %}
-              {% if recipe.protein %}
-              <!-- Protein -->
-              <div class="row">
-                <div class="col-2 text-center">
-                  <i class="fa fa-product-hunt" aria-hidden="true"></i>
-                </div>
-                <div class="col-6">Protein</div>
-                <div class="col-4">{{ recipe.protein }}</div>
-              </div>
-              {% endif %}
-              {% if recipe.sodium %}
-              <!-- Sodium -->
-              <div class="row">
-                <div class="col-2 text-center">
-                  <i class="fa fa-scribd" aria-hidden="true"></i>
-                </div>
-                <div class="col-6">Sodium</div>
-                <div class="col-4">{{ recipe.sodium }}</div>
-              </div>
-              {% endif %}
-              {% if recipe.fat %}
-              <!-- Fat -->
-              <div class="row">
-                <div class="col-2 text-center">
-                  <i class="fa fa-fonticons" aria-hidden="true"></i>
-                </div>
-                <div class="col-6">Fat</div>
-                <div class="col-4">{{ recipe.fat }}</div>
-              </div>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </div>
-      {% if recipe.desc %}
-      <!-- Description -->
-      <div class="row wow slideInUp">
-        <div class="col-12 text-center">
-          <h3>Description</h3>
-          <p>{{ recipe.desc }}</p>
-        </div>
-      </div>
-      {% endif %}
-      <!-- Ingredients -->
-      <div class="row wow slideInUp">
-        <div class="col-12">
-          <div class="recipe-ingredients">
-            <h3>Ingredients</h3>
-            <dl class="ingredients-list">
-              {% for ingredient in recipe.ingredients.split("\n") %}
-                <dd>{{ ingredient }}</dd>
-              {% endfor %}
-            </dl>
-          </div>
-        </div>
-      </div>
-      <!-- Directions -->
-      <div class="row wow slideInUp">
-        <div class="col-12">
-          <div class="recipe-directions">
-            <h3>Directions</h3>
-            <ol>
-              {% for direction in recipe.directions.split("\n") %}
-              <li>{{ direction }}</li>
-              {% endfor %}
-            </ol>
-          </div>
-        </div>
-      </div>
-      <!-- Tags -->
-      <div class="row wow slideInUp">
-        <div class="col-12">
-          <div class="recipe-directions">
-            <h3>Tags</h3>
-            <ol>
-              {% for category in recipe.categories.split("\n") %}
-              <span class="badge badge-dark"><a style="color: white;" href="{{ url_for('categories.category', cat=category) }}">{{ category}}</a></span>
-              {% endfor %}
-            </ol>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Back to recipes -->
-      <div class="row wow slideInUp">
-        <div class="col-12 text-center">
-          <a href="{{ referrer }}">
-            <i class="fa fa-backward" aria-hidden="true"></i>
-            Go to back to recipes.
-          </a>
-        </div>
-      </div>
-      
-      
     </div>
-  </section>
+    <div class="row vertical-align">
+      <div class="col-12">
+        <!-- Picture -->
+        <div class="col-md-8 pull-left wow swing">
+          <img
+            src="{{ recipe.image }}"
+            alt="{{ recipe.title }}"
+            class="recipe-picture"
+          />
+        </div>
+        <!-- Info -->
+        <div class="col-md-4 pull-right wow lightSpeedIn">
+          <div class="recipe-info">
+            <h3>Info</h3>
+            {% if recipe.rating %}
+            <!-- Rating -->
+            <div class="row">
+              <div class="col-2 text-center">
+                <i class="fa fa-area-chart" aria-hidden="true"></i>
+              </div>
+              <div class="col-6">Rating</div>
+              <div class="col-4">
+                {% for _ in range(recipe.rating) %}
+                <i class="fa fa-star" aria-hidden="true"></i>
+                {% endfor %}
+              </div>
+            </div>
+            {% endif %} {% if recipe.calories %}
+            <!-- Calories -->
+            <div class="row">
+              <div class="col-2 text-center">
+                <i class="fa fa-codiepie" aria-hidden="true"></i>
+              </div>
+              <div class="col-6">Calories</div>
+              <div class="col-4">{{ recipe.calories }}</div>
+            </div>
+            {% endif %} {% if recipe.protein %}
+            <!-- Protein -->
+            <div class="row">
+              <div class="col-2 text-center">
+                <i class="fa fa-product-hunt" aria-hidden="true"></i>
+              </div>
+              <div class="col-6">Protein</div>
+              <div class="col-4">{{ recipe.protein }}</div>
+            </div>
+            {% endif %} {% if recipe.sodium %}
+            <!-- Sodium -->
+            <div class="row">
+              <div class="col-2 text-center">
+                <i class="fa fa-scribd" aria-hidden="true"></i>
+              </div>
+              <div class="col-6">Sodium</div>
+              <div class="col-4">{{ recipe.sodium }}</div>
+            </div>
+            {% endif %} {% if recipe.fat %}
+            <!-- Fat -->
+            <div class="row">
+              <div class="col-2 text-center">
+                <i class="fa fa-fonticons" aria-hidden="true"></i>
+              </div>
+              <div class="col-6">Fat</div>
+              <div class="col-4">{{ recipe.fat }}</div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% if recipe.desc %}
+    <!-- Description -->
+    <div class="row wow slideInUp">
+      <div class="col-12 text-center">
+        <h3>Description</h3>
+        <p>{{ recipe.desc }}</p>
+      </div>
+    </div>
+    {% endif %}
+    <!-- Ingredients -->
+    <div class="row wow slideInUp">
+      <div class="col-12">
+        <div class="recipe-ingredients">
+          <h3>Ingredients</h3>
+          <dl class="ingredients-list">
+            {% for ingredient in recipe.ingredients.split("\n") %}
+            <dd>{{ ingredient }}</dd>
+            {% endfor %}
+          </dl>
+        </div>
+      </div>
+    </div>
+    <!-- Directions -->
+    <div class="row wow slideInUp">
+      <div class="col-12">
+        <div class="recipe-directions">
+          <h3>Directions</h3>
+          <ol>
+            {% for direction in recipe.directions.split("\n") %}
+            <li>{{ direction }}</li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- Tags -->
+    <div class="row wow slideInUp">
+      <div class="col-12">
+        <div class="recipe-directions">
+          <h3>Tags</h3>
+          <ol>
+            {% for category in recipe.categories.split("\n") %}
+            <span class="badge badge-dark"
+              ><a
+                style="color: white"
+                href="{{ url_for('categories.category', cat=category) }}"
+                >{{ category}}</a
+              ></span
+            >
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to recipes -->
+    <div class="row wow slideInUp">
+      <div class="col-12 text-center">
+        <a href="#" onclick="goBack()">
+          <i class="fa fa-backward" aria-hidden="true"></i>
+          Go to back to recipes.
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
 {% endblock%}
